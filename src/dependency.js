@@ -2,13 +2,12 @@
 
 'use strict';
 
-module.exports = {
-    /** Does some stuff. */
-    baz: function(qux) {
-        return qux.toLowerCase();
-    },
-    /** Does other stuff. */
-    foo: function(bar) {
-        return bar.toUpperCase();
-    },
-};
+/** Does some stuff. */
+export function baz(qux) {
+    return qux.toLowerCase();
+}
+
+/** Does other stuff. */
+export function foo(bar) {
+    return bar.toUpperCase();
+}

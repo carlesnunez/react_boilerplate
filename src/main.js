@@ -2,11 +2,10 @@
 
 'use strict';
 
-var dependency = require('./dependency.js');
+import {foo} from './dependency';
 
-module.exports = {
-    /** Executes the module. */
-    run: function() {
-        dependency.foo('bar');
-    }
-};
+/** Executes the module. */
+export function run() {
+    foo('bar');
+}
+clearInterval()

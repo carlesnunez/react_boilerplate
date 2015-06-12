@@ -2,10 +2,10 @@
 
 'use strict';
 
-var dependency = require('../src/dependency');
+import {foo} from '../src/dependency';
 
 describe('Dependency', function() {
     it('foo method works:', function() {
-        expect(dependency.foo('bar')).toBe('BAR');
+        expect(foo('bar')).toBe('BAR');
     });
 });

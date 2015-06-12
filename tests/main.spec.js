@@ -3,7 +3,8 @@
 'use strict';
 
 var dependency = require('../src/dependency');
-var main = require('../src/main');
+
+import {run} from '../src/main';
 
 describe('Main', function() {
     beforeEach(function() {
@@ -11,7 +12,7 @@ describe('Main', function() {
     });
 
     it('calls dependency\'s foo:', function() {
-        main.run();
+        run();
         expect(dependency.foo).toHaveBeenCalledWith('bar');
     });
 });
