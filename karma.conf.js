@@ -67,7 +67,7 @@ module.exports = function(config) {
 
         browserify: {
             debug: true,
-            transform: [istanbul]
+            transform: ['babelify', istanbul]
         },
 
 

@@ -8,7 +8,10 @@ module.exports = function(grunt) {
         browserify: {
             build: {
                 src: ['src/**/*.js'],
-                dest: 'dist/seed.js'
+                dest: 'dist/seed.js',
+                options: {
+                    transform: ['babelify']
+                }
             }
         },
 
@@ -86,7 +89,8 @@ module.exports = function(grunt) {
                 browser: true,
                 devel: false,
                 jasmine: true,
-                browserify: true
+                browserify: true,
+                esnext: true
             },
             all: {
                 src: ['Gruntfile.js', 'src/**/*.js', 'tests/**/*.js']
