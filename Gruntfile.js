@@ -10,7 +10,8 @@ module.exports = function(grunt) {
                 src: ['src/**/*.js'],
                 dest: 'dist/seed.js',
                 options: {
-                    transform: ['babelify']
+                    transform: ['babelify'],
+                    require: ['babelify/polyfill']
                 }
             }
         },

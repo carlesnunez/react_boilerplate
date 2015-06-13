@@ -69,7 +69,12 @@ module.exports = function(config) {
 
         browserify: {
             debug: true,
-            transform: ['babelify', istanbul]
+            transform: ['babelify', istanbul],
+            configure: function(bundle) {
+                bundle.once('prebundle', function() {
+                    bundle.add('babelify/polyfill');
+                });
+            }
         },
 
 
