@@ -8,4 +8,3 @@ import {foo} from './dependency';
 export function run() {
     foo('bar');
 }
-clearInterval()
