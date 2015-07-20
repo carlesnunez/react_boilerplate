@@ -1,7 +1,6 @@
 {
   "name": "react_boilerplate",
   "version": "0.0.0",
-  "homepage": "https://github.com/svetos1av/grunt-browserify-karma-seed",
   "contributors": [{
     "name": "Tomas Casquero",
     "email": "tomcask@gmail.com"
