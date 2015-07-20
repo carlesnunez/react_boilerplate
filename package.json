@@ -1,26 +1,6 @@
 {
-  "name": "grunt-browserify-karma-seed",
+  "name": "react_boilerplate",
   "version": "0.0.0",
-  "description": "Grunt + Browserify + Karma seed.",
-  "main": "dist/seed.js",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/svetos1av/grunt-browserify-karma-seed.git"
-  },
-  "keywords": [
-    "grunt",
-    "browserify",
-    "karma",
-    "seed"
-  ],
-  "author": "svetoslav.mishkov@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/svetos1av/grunt-browserify-karma-seed/issues"
-  },
   "homepage": "https://github.com/svetos1av/grunt-browserify-karma-seed",
   "devDependencies": {
     "babelify": "^6.1.2",
