@@ -13,6 +13,7 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-karma": "^0.11.0",
+    "grunt-contrib-connect": "~0.10.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.12.35",
     "karma-babel-preprocessor": "^5.2.1",
@@ -21,6 +22,9 @@
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.2.0",
     "phantomjs": "^1.9.17",
-    "react": "~0.13.3"
+    "react": "~0.13.3",
+    "flux": "~2.0.3",
+    "grunt-reactify": "0.0.2",
+    "reactify": "~1.1.1"
   }
 }

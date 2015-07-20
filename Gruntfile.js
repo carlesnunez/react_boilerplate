@@ -7,11 +7,12 @@ module.exports = function(grunt) {
 
         browserify: {
             build: {
-                src: ['src/**/*.js'],
-                dest: '.build/index.js',
+                src: 'src/index.jsx',
+                dest: '.build/js/index.js',
                 options: {
-                    transform: ['babelify'],
-                    require: ['babelify/polyfill']
+                    debug: true,
+                    extensions: ['.jsx'],
+                    transform: ['babelify']
                 }
             }
         },
@@ -20,14 +21,28 @@ module.exports = function(grunt) {
                 files: [
                     {cwd: 'src', expand: true, src: './assets/*', dest: '.build/'}
                 ]
+            },
+            html: {
+                files: [
+                    {cwd: 'src', expand: true, src: '*.html', dest: '.build/'}
+                ]
             }
         },
         watch: {
             all: {
                 files: ['src/**/*.js', 'tests/**/*.js'],
-                tasks: ['default'],
+                tasks: ['build'],
                 options: {
                     spawn: false
+                }
+            }
+        },
+
+        connect: {
+            server: {
+                options: {
+                    port: 8080,
+                    base: '.build'
                 }
             }
         },
@@ -56,15 +71,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-reactify');
     grunt.loadNpmTasks('grunt-karma');
 
     grunt.event.on('watch', function(action, path) {
         grunt.config('jshint.all.src', path);
     });
 
-    grunt.registerTask('build', ['clean:all', 'browserify:build', 'copy:assets']);
+    grunt.registerTask('build', ['clean:all', 'browserify:build', 'copy:assets', 'copy:html']);
 
-    grunt.registerTask('default', ['build', 'watch:all']);
+    grunt.registerTask('default', ['build', 'connect', 'watch:all']);
 
     grunt.registerTask('test', ['karma:production']);
 };
