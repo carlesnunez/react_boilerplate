@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         browserify: {
             build: {
                 src: ['src/**/*.js'],
-                dest: 'dist/seed.js',
+                dest: '.build/main.js',
                 options: {
                     transform: ['babelify'],
                     require: ['babelify/polyfill']
@@ -24,10 +24,9 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            documentation: {
+            assets: {
                 files: [
-                    {src: 'LICENSE', dest: 'dist/'},
-                    {src: 'README.md', dest: 'dist/'}
+                    {src: './assets/*', expand: true, cwd: 'src', dest: '.build/'}
                 ]
             }
         },
@@ -50,7 +49,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            all: ['dist/*']
+            all: ['.build/*']
         },
 
         karma: {
@@ -115,26 +114,9 @@ module.exports = function(grunt) {
         grunt.config('jshint.all.src', path);
     });
 
-    grunt.registerTask('development', [
-        'clean:all',
-        'force:jshint:all',
-        'watch:all'
-    ]);
+    grunt.registerTask('build', ['clean:all', 'jshint:all', 'browserify:build', 'copy:assets']);
 
-    grunt.registerTask('build', [
-        'clean:all',
-        'jshint:all',
-        'karma:production',
-        'browserify:build',
-        'uglify:build',
-        'jsdoc:all'
-    ]);
+    grunt.registerTask('default', ['build', 'watch:all']);
 
-    grunt.registerTask('default', [
-        'development'
-    ]);
-
-    grunt.registerTask('test', [
-        'karma:development'
-    ]);
+    grunt.registerTask('test', ['karma:production']);
 };
