@@ -2,6 +2,16 @@
   "name": "react_boilerplate",
   "version": "0.0.0",
   "homepage": "https://github.com/svetos1av/grunt-browserify-karma-seed",
+  "contributors": [{
+    "name": "Tomas Casquero",
+    "email": "tomcask@gmail.com"
+  },{
+    "name": "Carles Nuñez",
+    "email": "tomcask@gmail.com"
+  },{
+    "name": "Adria ",
+    "email": "tomcask@gmail.com"
+  }],
   "devDependencies": {
     "babelify": "^6.1.2",
     "browserify": "^10.2.3",
@@ -26,5 +36,8 @@
     "flux": "~2.0.3",
     "grunt-reactify": "0.0.2",
     "reactify": "~1.1.1"
+  },
+  "browserify": {
+    "transform": [["babelify", { "optional": ["es6"] }]]
   }
 }

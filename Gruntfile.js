@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
         browserify: {
             build: {
-                src: 'src/**/*.jsx',
+                src: 'src/index.js',
                 dest: '.build/js/index.js',
                 options: {
                     browserifyOptions: {

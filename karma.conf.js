@@ -1,8 +1,6 @@
 // Karma configuration
 // Generated on Wed Jun 03 2015 06:34:42 GMT+0000 (UTC)
 
-var istanbul = require('browserify-istanbul');
-
 module.exports = function(config) {
     config.set({
 
@@ -69,7 +67,8 @@ module.exports = function(config) {
 
         browserify: {
             debug: true,
-            transform: ['babelify', istanbul],
+            extensions: ['.es6'],
+            transform: ['babelify'],
             configure: function(bundle) {
                 bundle.once('prebundle', function() {
                     bundle.add('babelify/polyfill');
