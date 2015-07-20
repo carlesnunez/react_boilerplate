@@ -7,11 +7,13 @@ module.exports = function(grunt) {
 
         browserify: {
             build: {
-                src: 'src/index.jsx',
+                src: 'src/**/*.jsx',
                 dest: '.build/js/index.js',
                 options: {
-                    debug: true,
-                    extensions: ['.jsx'],
+                    browserifyOptions: {
+                        debug: true,
+                        extensions: ['.es6','.jsx','.js']
+                    },
                     transform: ['babelify']
                 }
             }
@@ -30,7 +32,7 @@ module.exports = function(grunt) {
         },
         watch: {
             all: {
-                files: ['src/**/*.js', 'tests/**/*.js'],
+                files: ['src/**/*.jsx', 'tests/**/*.js'],
                 tasks: ['build'],
                 options: {
                     spawn: false
@@ -72,7 +74,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-reactify');
     grunt.loadNpmTasks('grunt-karma');
 
     grunt.event.on('watch', function(action, path) {

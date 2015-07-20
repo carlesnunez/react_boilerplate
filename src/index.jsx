@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
+import TestComponent from './components/TestComponent';
+
 
 React.render(
-        <div className='TestComponent'>
-            <span>Hello World</span>
-        </div>,
+        <TestComponent />,
     document.getElementById('main')
 );
